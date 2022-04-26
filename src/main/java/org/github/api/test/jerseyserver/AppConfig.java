@@ -1,5 +1,6 @@
 package org.github.api.test.jerseyserver;
 
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -35,6 +36,8 @@ public class AppConfig extends ResourceConfig {
         //register(jerseyOperationalFeature);
         //register(coreAuthFilter);
 
+        register(MultiPartFeature.class);
+        packages("org.github.api.test.jerseyserver");
         this.register(ImageController.class);
     }
 }

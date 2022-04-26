@@ -19,12 +19,12 @@ public class ImageController {
     @Context
     private Configuration configuration;
 
-    // @QueryParam("k") int k,
     @POST
     @Path("/image")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response uploadImage( @FormDataParam("image") InputStream fileInputStream )
+    public Response uploadImage( @FormDataParam("image") InputStream fileInputStream,
+                                 @FormDataParam("k") int k)
             throws Exception{
 
         BufferedImage image = ImageIO.read(fileInputStream);
